@@ -1,0 +1,28 @@
+[package]
+license = "gpl"
+name = "irc-bot"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+anyhow = "1.0.65"
+futures = "0.3.24"
+irc = "0.15.0"
+linkify = "0.9.0"
+opengraph = "0.2.4"
+serenity = { version = "0.11.5", default-features = false, features = ["client", "rustls_backend", "gateway", "model", "cache"] }
+shuttle-service = { version = "0.5.2", features = ["sqlx-postgres", "secrets"] }
+sqlx = { version = "0.6.2", features = ["runtime-tokio-native-tls", "postgres"] }
+sync_wrapper = "0.1.1"
+thiserror = "1.0.35"
+tokio = "1.21.1"
+
+[package.metadata.nix]
+# Toggle app flake output
+app = true
+# Toggle flake outputs that build (checks, package and app)
+build = true
+# Toolchain to be used
+toolchain = "nightly"
